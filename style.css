@@ -1,0 +1,15 @@
+#library-container {
+    display: flex; /* Example: Use flexbox for layout */
+    flex-wrap: wrap; /* Wrap the cards to the next line if there's not enough space */
+    justify-content: space-around; /* Align cards with space around */
+    padding: 20px; /* Add padding to the container */ 
+    margin-top: 4rem;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
