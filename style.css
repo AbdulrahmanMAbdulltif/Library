@@ -1,15 +1,258 @@
-#library-container {
-    display: flex; /* Example: Use flexbox for layout */
-    flex-wrap: wrap; /* Wrap the cards to the next line if there's not enough space */
-    justify-content: space-around; /* Align cards with space around */
-    padding: 20px; /* Add padding to the container */ 
-    margin-top: 4rem;
+
+/* Css Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
 }
 
-.card {
-    border: 1px solid #ccc;
+body{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color:#e6e6e6;
+}
+header{
+    height: 70px;
+    background-color: #127DFF;
+    color: #fff;
+    display: flex;
+}
+
+main{
+    flex: 1;
+    margin: 50px 100px;
+    margin-top: 50px;
+   
+
+}
+#card-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly; /* Change this to flex-start */
+}
+.card{
+    background: linear-gradient(to right, #12c453, #19bebe);
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
     padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
+    box-shadow: 0px 1px 5px #2c3a4f;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content:center ;
+    color: #fff;
+    margin-top: 20px;
+    
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#addNewBook{
+  margin-left: 7rem;
+  background-color: #24a0ed;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border-width: 1px;
+  border: none;
+  color: white;
+}
+
+.mainHead{
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+
+
+.container {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  .icons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .add-new-icon{
+    width: 100px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+  }
+
+  #add-circle{
+    font-size: 80px;
+    background: linear-gradient(to right, #12c453, #19bebe);
+    -webkit-background-clip: text; /* For WebKit browsers */
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+  }
+  footer {
+    height: 50px;
+    background-color: #1f2937;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 1px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Optional: Style for success message */
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
 }
